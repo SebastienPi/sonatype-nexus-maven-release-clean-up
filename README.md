@@ -36,5 +36,5 @@ Variables (change it before use it):
 | AUTHENTIFICATION | USER:PASSWORD | No value | Dedicated user on Nexus with roles `nx-repository-view-maven2-*-browse` and `nx-repository-view-maven2-*-delete` (“*” can be a single repository depending on your need) |
 | BASE_URL | http(s)://FQDN | http://127.0.0.1:8080 | Base URL only (do not include `/service/rest/vX/`) |
 | COMPOSANTS_EXCLUS | group1.component1\|group2.component2\|…\|groupN.componentN | Empty | Example: `com.company.application1\|com.company.application2` |
-| GROUPES_EXCLUS | group1\|group2\|…|groupN | Empty | Example: `com.company.subgroup1\|com.company.subgroup2` |
+| GROUPES_EXCLUS | group1\|group2\|…\|groupN | Empty | Example: `com.company.subgroup1\|com.company.subgroup2` |
 | GARDER_X_VERSIONS | Integer greater than 0 | 3 | This script will keep this number of versions |
