@@ -10,7 +10,9 @@ Nexus contains a “retain select versions” feature, but for [pro version on
 This script has these features:
 * clean-up Sonatype Nexus repositories (used for Maven but it will work for other types);
 * white list by groups or components;
-* keep X latest versions of each component.
+* keep X latest versions of each component;
+* show biggest items by size;
+* show large components.
 
 # Dependencies
 Only few things:

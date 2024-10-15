@@ -22,7 +22,7 @@ while getopts 'sv' OPTION
 do
 	case "${OPTION}" in
 		s)
-			declare -r CURL_OPTS='--silent --show-error'
+			declare -r CURL_OPTS='--silent'
 			declare -r SIMULATION=true;;
 		v)
 			declare -r CURL_OPTS='--verbose'
@@ -105,3 +105,14 @@ do
 		fi
 	fi
 done
+
+
+# Top 50 en taille
+echo '50 plus gros objets stockés :'
+echo "${reponses}" | jq '.items[].assets[]' | jq --slurp  'sort_by(-.fileSize) | .[range(50)] | {objet: .maven2, taille: .fileSize, creation: .blobCreated, telechargement: .lastDownloaded}'
+echo
+echo
+
+# Top 20 en nombre
+echo '20 en nombre de versions :'
+echo "${reponses}" | jq '.items[] | {groupe: .group, composant: .name, version: .version, taille: fileSize}' | jq --slurp --compact-output 'group_by(.groupe, .composant)' | sed 's/\],\[/\]\n\[/g' | sed 's/\[\[/\[/' | sed 's/\]\]/\]/' | jq --slurp  'sort_by(-length) | .[range(20)]'
