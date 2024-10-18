@@ -91,9 +91,9 @@ do
 					do
 						if [ ${SIMULATION} ]
 						then
-							echo "curl ${CURL_OPTS} --request DELETE -v --user ${AUTHENTIFICATION}" "${BASE_URL}/service/rest/v1/assets/${k}"
+							echo "curl ${CURL_OPTS} --request DELETE --user ${AUTHENTIFICATION}" "${BASE_URL}/service/rest/v1/assets/${k}"
 						else
-							curl ${CURL_OPTS} --request DELETE -v --user "${AUTHENTIFICATION}" "${BASE_URL}/service/rest/v1/assets/${k}"
+							curl ${CURL_OPTS} --request DELETE --user "${AUTHENTIFICATION}" "${BASE_URL}/service/rest/v1/assets/${k}"
 						fi
 					done
 				done
