@@ -81,8 +81,8 @@ do
 			if [ $? -ne 0 ]
 			then
 
-				# Trier les versions et exclure les 3 dernières lignes
-				for j in $(echo "${i}" | jq --raw-output '.[].version' | sort --version-sort | head --lines -3)
+				# Trier les versions et exclure les X dernières lignes
+				for j in $(echo "${i}" | jq --raw-output '.[].version' | sort --version-sort | head --lines -${GARDER_X_VERSIONS})
 				do
 					echo "Suppression de la version ${j} du composant ${groupe}.${composant}"
 					[ "${VERBEUX}" ] && echo "\nSuppression des fichiers : $(echo "${reponses}" | jq --raw-output '.items[] | select(.group == "'${groupe}'" and .name == "'${composant}'" and .version == "'${j}'") | .assets[].path')"
