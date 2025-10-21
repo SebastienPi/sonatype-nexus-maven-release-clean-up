@@ -1,8 +1,8 @@
 # Goals
 Since migration of Sonatype Nexus 3.71.0, lots of things have changed for free version (Java 17 and H2).
 
-In my company, we used Groove clean-up script to purge old Maven releases with internal “org.sonatype.nexus.repository.storage.StorageFacet” and “org.sonatype.nexus.repository.storage.Query”.
-If removal of OrientDB, we can not do it anymore. Also, script are deprecated (and disabled by default) and it is not reliable to use internal classes.
+In my company, we used Groovy clean-up script to purge old Maven releases with internal “org.sonatype.nexus.repository.storage.StorageFacet” and “org.sonatype.nexus.repository.storage.Query”.
+With removal of OrientDB, we can not do it anymore. Also, script are deprecated (and disabled by default) and it is not reliable to use internal classes.
 
 Nexus contains a “retain select versions” feature, but for [pro version only](https://help.sonatype.com/en/cleanup-policies.html). So we decided to create a shell script that use [public APIs of Nexus](https://help.sonatype.com/en/rest-and-integration-api.html).
 
